@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestForms {
     @BeforeAll
@@ -52,6 +53,8 @@ public class TestForms {
         $("#currentAddress").setValue("street 1");
         $("#permanentAddress").setValue("street 2");
         $("#submit").click();
+        //assertTrue($(".field-error").isDisplayed());
+        $(".field-error").should(appear);
     }
 
     @AfterEach
