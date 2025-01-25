@@ -52,7 +52,6 @@ public class TestForms {
         $("#currentAddress").setValue("street 1");
         $("#permanentAddress").setValue("street 2");
         $("#submit").click();
-        $(".field-error").isDisplayed();
     }
 
     @AfterEach
