@@ -37,7 +37,7 @@ public class TestForms {
     }
 
     @Test
-    public void validFillFields() {
+    void validFillFields() {
         $("#userName").setValue("Anatoly");
         $("#userEmail").setValue("strong@strongovich.com");
         $("#currentAddress").setValue("street 1");
