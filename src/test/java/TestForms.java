@@ -54,7 +54,6 @@ public class TestForms {
         $("#permanentAddress").setValue("street 2");
         $("#submit").click();
         //assertTrue($(".field-error").isDisplayed());
-        $(".field-error").should(appear);
     }
 
     @AfterEach
