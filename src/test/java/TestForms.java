@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,11 +18,11 @@ public class TestForms {
     @Test
     void checkStateFields() {
         //Проверка labels
-        $(".text-center").shouldHave(text("Text Box"));
-        $("#userName-label").shouldHave(text("Full Name"));
-        $("#userEmail-label").shouldHave(text("Email"));
-        $("#currentAddress-label").shouldHave(text("Current Address"));
-        $("#permanentAddress-label").shouldHave(text("Permanent Address"));
+        $(".text-center").shouldHave(exactText("Text Box"));
+        $("#userName-label").shouldHave(exactText("Full Name"));
+        $("#userEmail-label").shouldHave(exactText("Email"));
+        $("#currentAddress-label").shouldHave(exactText("Current Address"));
+        $("#permanentAddress-label").shouldHave(exactText("Permanent Address"));
 
         //Проверка на пустоту
         $("#userName").shouldHave(value(""));
