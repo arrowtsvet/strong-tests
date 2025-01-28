@@ -1,12 +1,11 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestForms {
     @BeforeAll
@@ -55,13 +54,23 @@ public class TestForms {
         $("#submit").click();
         //assertTrue($(".field-error").isDisplayed());
         $(".field-error").should(appear);
+
+        //получить значение свойства border
+        /*$(".field-error").getCssValue("border");*/
+
+        //$(".field-error").should(Condition.cssValue("border", $(".field-error").getCssValue("border").toString()));
+        $(".field-error").should(cssValue("border", "1px solid rgb(255, 0, 0)"));
     }
 
     @AfterEach
     void clearFields() {
-        $("#userName").clear();
+
+        /* $("#userName").clear();
         $("#userEmail").clear();
         $("#currentAddress").clear();
-        $("#permanentAddress").clear();
+        $("#permanentAddress").clear();*/
+
+        //очищаем поля видимых элементов, оптимизация 4-ёх строк выше, желательно использовать очищение по каждому элементу в отдельности
+        $$(".form-control").filter(visible).forEach(e -> e.clear());
     }
 }
